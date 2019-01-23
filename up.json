@@ -1,0 +1,5 @@
+{
+  "name": "chrome-test2",
+  "profile": "timConsole",
+  "regions": ["us-west-2"]
+}
