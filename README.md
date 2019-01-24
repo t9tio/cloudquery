@@ -5,7 +5,7 @@ Turn any website to serverless API (with SPA supported!)
 
 Try online: https://2uvlp0y13b.execute-api.us-west-2.amazonaws.com/staging/
 
-![](https://user-images.githubusercontent.com/5512552/51652692-86afc880-1fcb-11e9-92df-756090cd35dc.gif)
+![](https://user-images.githubusercontent.com/5512552/51655619-6b978580-1fd8-11e9-93a9-9accf8e25e54.gif)
 
 ## API
 
@@ -57,3 +57,9 @@ npm start
 # build
 npm run build
 ```
+
+# Thanks
+
+- [up](https://github.com/apex/up) for deploying serverless API to AWS with ease
+- [serverless-chrome](https://github.com/adieuadieu/serverless-chrome) for running chrome on AWS lambda
+- [finder](https://github.com/antonmedv/finder) for making it easy to select elements on webpage
