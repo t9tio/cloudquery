@@ -37,6 +37,7 @@ npm start
 
 ### 2. Deploy
 
+1. `npm install`
 1. install [`up`](https://up.docs.apex.sh)
 1. Input `up` in terminal and hit enter :)
 1. `up url` to see the API baseURL of your CloudQuery
