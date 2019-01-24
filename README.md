@@ -1,7 +1,7 @@
 
 # CloudQuery
 
-Turn any website to serverless API (with SPA supported!)
+Turn any website to serverless API (with SPA support!)
 
 Try online: https://2uvlp0y13b.execute-api.us-west-2.amazonaws.com/staging/
 
