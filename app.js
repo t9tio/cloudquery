@@ -9,14 +9,11 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const rateLimit = require("express-rate-limit");
+const config = require('./config');
 
 app.enable("trust proxy"); // only if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 
-const limiter = rateLimit({
-  windowMs: 60 * 60 * 1000, // 1 hour
-  max: 10, // limit each IP to 10 requests per windowMs
-  message: "Too many requests receved from this IP, please try again after an hour"
-});
+const limiter = rateLimit(config.rateLimit);
 
 app.use('/fullHtml', limiter);
 app.use('/query', limiter);

@@ -1,12 +1,25 @@
+
 # CloudQuery
 
 Turn any website to serverless API (with SPA supported!)
 
+Try online: https://2uvlp0y13b.execute-api.us-west-2.amazonaws.com/staging/
+
+![](https://user-images.githubusercontent.com/5512552/51652692-86afc880-1fcb-11e9-92df-756090cd35dc.gif)
+
 ## API
 
-baseURL: lambda function url
-queries: url; selectors
-example: https://56yv878hel.execute-api.us-west-2.amazonaws.com/staging?url=https://news.ycombinator.com/best&selectors=*:nth-child(1) > * > *:nth-child(2) > *:nth-child(2) > *:nth-child(1),*:nth-child(3) *:nth-child(1) > *:nth-child(3) > *:nth-child(1),
+Example url: [https://2uvlp0y13b.execute-api.us-west-2.amazonaws.com/staging/query?url=https://news.ycombinator.com/best&selectors=*:nth-child(1) > * > *:nth-child(2) > *:nth-child(2) > *:nth-child(1),*:nth-child(3) *:nth-child(1) > *:nth-child(3) > *:nth-child(1)](https://2uvlp0y13b.execute-api.us-west-2.amazonaws.com/staging/query?url=https://news.ycombinator.com/best&selectors=*:nth-child(1)%20%3E%20*%20%3E%20*:nth-child(2)%20%3E%20*:nth-child(2)%20%3E%20*:nth-child(1),*:nth-child(3)%20*:nth-child(1)%20%3E%20*:nth-child(3)%20%3E%20*:nth-child(1))
+
+Query params:
+
+- url: url of the webpage you want to fetch
+- selectors: css selectors describing the elements interestes you
+
+Returns:
+
+- innerText: element innerText
+- href: element href
 
 ## Run locally
 
@@ -15,32 +28,32 @@ npm i
 npm start
 ```
 
-## Preview in action
+## How to deploy your own CloudQuery to AWS lambda
 
-https://cloudfetch.info/createFetcher
+### 1. Configuration
 
-## Prerequest
+- update `profile`([AWS Credential Profiles](https://up.docs.apex.sh/#aws_credentials)) in `up.json` to use your own aws account
+- update `rateLimit` in `config.json` to set your own rate limit (Default: 5 request/hour)
 
-- An aws account used to deploy lambda function
-- [`up`](https://up.docs.apex.sh) used to deploing to lambda with ease.
+### 2. Deploy
 
-AWS Credential Profiles
-Most AWS tools support the ~/.aws/credentials file for storing credentials, allowing you to specify AWS_PROFILE environment variable so Up knows which one to reference. To read more on configuring these files view Configuring the AWS CLI.
+- Input `up` in terminal and hit enter :)
+- `up url` to see the API baseURL of your CloudQUery
 
-Here’s an example of ~/.aws/credentials, where export AWS_PROFILE=myaccount would activate these settings.
+## Contribute
+
+### Backend
 
 ```bash
-[myaccount]
-aws_access_key_id = xxxxxxxx
-aws_secret_access_key = xxxxxxxxxxxxxxxxxxxxxxxx
+vim app.js
 ```
 
-## Deploy
+### Frontend
 
 ```bash
-# deploy cloudquery
-up
-
-# get cloudquery base URL
-up url
+cd frontend
+# develop
+npm start
+# build
+npm run build
 ```

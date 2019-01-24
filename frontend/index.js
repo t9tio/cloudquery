@@ -4,8 +4,10 @@ import React,{ useState } from "react";
 import ReactDOM from "react-dom";
 import finder from "@medv/finder";
 import axios from 'axios';
-const lambdaUrl = process.env.NODE_ENV === 'production' ? 'https://b5cv6c8j9j.execute-api.us-west-2.amazonaws.com/staging' : 'http://localhost:3000';
 import favicon from './favicon.ico';
+
+let lambdaUrl = window.location.href; // process.env.NODE_ENV === 'production' ? 'https://b5cv6c8j9j.execute-api.us-west-2.amazonaws.com/staging' : 'http://localhost:3000';
+if (lambdaUrl[lambdaUrl.length - 1] === '/') lambdaUrl = lambdaUrl.slice(0, lambdaUrl.length - 1);
 
 const requestFullHTML = async (url) => {
   const {data} = await axios.get(lambdaUrl + '/fullHtml', {

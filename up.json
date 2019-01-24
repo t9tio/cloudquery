@@ -1,5 +1,9 @@
 {
-  "name": "chrome-test2",
+  "name": "chrome-test3",
   "profile": "timConsole",
-  "regions": ["us-west-2"]
+  "regions": ["us-west-2"],
+  "static": {
+      "dir": "public",
+      "prefix": "/public/"
+  }
 }
