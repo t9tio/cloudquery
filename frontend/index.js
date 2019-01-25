@@ -96,7 +96,7 @@ const Page = () => {
 
   let APIElement = '';
   if (records.length > 0) {
-    const apiURL = `${lambdaUrl}/query?url=${url}&selectors=${records.map(record => record.selector).join(',')}`;
+    const apiURL = `${lambdaUrl}/query?url=${encodeURIComponent(url)}&selectors=${records.map(record => record.selector).join(',')}`;
     APIElement = <div className="control is-expanded">
       <strong>API UIL: &nbsp;</strong> <a href={apiURL} target="_blank" rel="noopener noreferrer" >{apiURL.slice(0,70)}...</a>
       <br/>
