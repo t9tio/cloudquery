@@ -14,7 +14,7 @@ Example url: [https://2uvlp0y13b.execute-api.us-west-2.amazonaws.com/staging/que
 Query params:
 
 - url: url of the webpage you want to fetch
-- selectors: css selectors describing the elements interestes you
+- selectors: css selectors describing the elements interests you
 
 Returns:
 
