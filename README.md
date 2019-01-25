@@ -56,6 +56,12 @@ npm start
 4. The backend and frontend server will both auto restart when seeing code change
 5. After adding new feature or fixing bugs, execute `npm run build` in `frontend` folder, frontend code will be built and copied to `public` folder.
 
+### Develop online
+
+You can run CloudQuery in a free online dev environment using Gitpod:
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cloudfetch/cloudquery)
+
 # Thanks
 
 - [up](https://github.com/apex/up) for deploying serverless API to AWS with ease
