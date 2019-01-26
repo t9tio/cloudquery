@@ -104,6 +104,7 @@ const Page = () => {
       <strong>Query: &nbsp;</strong> <input className="input is-small" style={{width: '20rem'}} value={`?url=${url}&selectors=${records.map(record => record.selector).join(',')}`}></input>
     </div>
   }
+
   return (
     <div>
       <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
@@ -163,9 +164,13 @@ const Page = () => {
                   return (
                     <div key={i} style={{margin:'.3rem'}}>
                       <a className="delete" onClick={() => {
-                        records[i].target.clicked = false;
-                        records[i].target.style.backgroundColor = null;
-                        records.splice(i,1);
+                        setRecords(pre => {
+                          const cur = pre;
+                          cur[i].target.clicked = false;
+                          cur[i].target.style.backgroundColor = null;
+                          cur.splice(i,1);
+                          return cur;
+                        })
                       }}>delete</a> &nbsp;
 
                       {
