@@ -6,7 +6,7 @@ import finder from "@medv/finder";
 import axios from 'axios';
 import favicon from './favicon.ico';
 
-let lambdaUrl = window.location.href; // process.env.NODE_ENV === 'production' ? 'https://b5cv6c8j9j.execute-api.us-west-2.amazonaws.com/staging' : 'http://localhost:3000';
+let lambdaUrl = process.env.NODE_ENV === 'production' ? window.location.href : 'http://localhost:3000';
 if (lambdaUrl[lambdaUrl.length - 1] === '/') lambdaUrl = lambdaUrl.slice(0, lambdaUrl.length - 1);
 
 const requestFullHTML = async (url) => {
@@ -96,12 +96,13 @@ const Page = () => {
 
   let APIElement = '';
   if (records.length > 0) {
-    const apiURL = `${lambdaUrl}/query?url=${encodeURIComponent(url)}&selectors=${records.map(record => record.selector).join(',')}`;
+    const queryParms = `url=${encodeURIComponent(url)}&selectors=${records.map(record => record.selector).join(',')}`
+    const apiURL = `${lambdaUrl}/query?${queryParms}`;
     APIElement = <div className="control is-expanded">
       <strong>API UIL: &nbsp;</strong> <a href={apiURL} target="_blank" rel="noopener noreferrer" >{apiURL.slice(0,70)}...</a>
       <br/>
       <br/>
-      <strong>Query: &nbsp;</strong> <input className="input is-small" style={{width: '20rem'}} value={`?url=${url}&selectors=${records.map(record => record.selector).join(',')}`}></input>
+      <strong>Query: &nbsp;</strong> <input className="input is-small" style={{width: '20rem'}} value={queryParms}></input>
     </div>
   }
 
@@ -152,8 +153,6 @@ const Page = () => {
 
             {/**https://coderwall.com/p/hkgamw/creating-full-width-100-container-inside-fixed-width-container : wilder: , width: '96vw', marginLeft: '-48vw', left: '50%', position: 'relative'*/}
             <label className="label">Step 2: Choose the content you want by clicking them</label>
-
-
             
             <div id="iframeContainer" style={{borderStyle: 'solid', borderColor:'hsl(0, 0%, 21%)', borderWidth:'5px', borderRadius:'5px'}}>
               <iframe id='iframe' sandbox="allow-forms allow-scripts allow-same-origin allow-popups" style={{width:'100%', height:500}}></iframe>

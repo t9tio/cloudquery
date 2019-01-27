@@ -26,6 +26,7 @@ Returns:
 ```bash
 npm i
 npm start
+# open http://localhost:3000
 ```
 
 ## How to deploy your own CloudQuery to AWS lambda
@@ -38,27 +39,21 @@ npm start
 ### 2. Deploy
 
 1. `npm install`
-1. install [`up`](https://up.docs.apex.sh)
+1. Install [`up`](https://up.docs.apex.sh)
 1. Input `up` in terminal and hit enter :)
 1. `up url` to see the API baseURL of your CloudQuery
 
-## Contribute
+## How to Contribute
 
-### Backend
-
-```bash
-vim app.js
-```
-
-### Frontend
-
-```bash
-cd frontend
-# develop
-npm start
-# build
-npm run build
-```
+1. Install [nodemon](https://github.com/remy/nodemon#) and [parcel](https://github.com/parcel-bundler/parcel) locally
+2. Start backend by `npm run local`
+3. Start frontend by
+    ```bash
+        cd frontend
+        npm start
+    ```
+4. The backend and frontend server will both auto restart when seeing code change
+5. After adding new feature or fixing bugs, execute `npm run build` in `frontend` folder, frontend code will be built and copied to `public` folder.
 
 # Thanks
 
