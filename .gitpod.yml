@@ -1,0 +1,12 @@
+ports:
+- port: 1234
+  onOpen: open-preview
+- port: 3000
+  onOpen: ignore
+tasks:
+- init: npm install && npm i -g nodemon
+  command: AWS_EXECUTION_ENV=true npm run local
+- openMode: split-right
+  before: cd frontend
+  init: npm install && npm i -g parcel
+  command: LAMBDA_URL=`gp url 3000` npm start

@@ -7,6 +7,7 @@ import axios from 'axios';
 import favicon from './favicon.ico';
 
 let lambdaUrl = process.env.NODE_ENV === 'production' ? window.location.href : 'http://localhost:3000';
+if (process.env.LAMBDA_URL) lambdaUrl = process.env.LAMBDA_URL;
 if (lambdaUrl[lambdaUrl.length - 1] === '/') lambdaUrl = lambdaUrl.slice(0, lambdaUrl.length - 1);
 
 const requestFullHTML = async (url) => {
@@ -153,7 +154,7 @@ const Page = () => {
 
             {/**https://coderwall.com/p/hkgamw/creating-full-width-100-container-inside-fixed-width-container : wilder: , width: '96vw', marginLeft: '-48vw', left: '50%', position: 'relative'*/}
             <label className="label">Step 2: Choose the content you want by clicking them</label>
-            
+
             <div id="iframeContainer" style={{borderStyle: 'solid', borderColor:'hsl(0, 0%, 21%)', borderWidth:'5px', borderRadius:'5px'}}>
               <iframe id='iframe' sandbox="allow-forms allow-scripts allow-same-origin allow-popups" style={{width:'100%', height:500}}></iframe>
 
@@ -188,7 +189,7 @@ const Page = () => {
             <br/>
             {APIElement}
             <br/>
-            
+
           </div>
         </div>
       </div>
