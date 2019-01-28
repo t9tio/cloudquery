@@ -50,6 +50,7 @@ npm start
 3. Start frontend by
     ```bash
         cd frontend
+        npm install
         npm start
     ```
 4. The backend and frontend server will both auto restart when seeing code change
