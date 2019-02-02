@@ -134,11 +134,14 @@ app.get('/query', async function(req, res){
             const hrefRes = await Runtime.evaluate({
                 expression: `document.querySelector('${selector}').href`,
             });
-            console.log(innerTextRes, hrefRes)
+            const srcRes = await Runtime.evaluate({
+                expression: `document.querySelector('${selector}').src`,
+            });
             return {
                 // selector,
                 innerText: innerTextRes.result.value,
                 href: hrefRes.result.value,
+                imgSrc: srcRes.result.value
             }
         });
 
@@ -166,7 +169,6 @@ app.get('/query', async function(req, res){
     }
   }
 });
-
 /**
  * Sample query:
  * req.url: 'https://baidu.com'
