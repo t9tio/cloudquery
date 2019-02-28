@@ -112,11 +112,8 @@ const Page = () => {
       <nav className="navbar is-dark" role="navigation" aria-label="main navigation">
         <div className="container">
           <div className="navbar-brand">
-            <a className="navbar-item" href="https://cloudfetch.info">
+            <a className="navbar-item" href="https://t9t.io">
               <img src={favicon} alt="" width="28" height="28"/>
-            </a>
-            <a className="navbar-item"  href="https://cloudfetch.info">
-              <strong>CloudFetch</strong>
             </a>
             <a className="navbar-item is-active">
               <strong>CloudQuery</strong>
@@ -205,7 +202,7 @@ const Page = () => {
             <a className="icon button is-white" href="mailto:timqian92@qq.com"><i className="fas fa-envelope"></i></a>
           </div>
         </div>
-      </footer>s
+      </footer>
     </div>
   );
 }

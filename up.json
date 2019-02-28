@@ -1,9 +1,14 @@
 {
-  "name": "chrome-test3",
+  "name": "cloudquery",
   "profile": "timConsole",
   "regions": ["us-west-2"],
   "static": {
-      "dir": "public",
-      "prefix": "/public/"
+    "dir": "public",
+    "prefix": "/public/"
+  },
+  "stages": {
+    "production": {
+      "domain": "cloudquery.t9t.io"
+    }
   }
 }
