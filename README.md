@@ -1,7 +1,7 @@
 
 # CloudQuery
 
-Turn any website to serverless API (with SPA support!)
+Turn any website to API (serverless and support SPA!)
 
 Try online: https://cloudquery.t9t.io
 
