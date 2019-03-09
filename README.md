@@ -20,6 +20,7 @@ Returns:
 
 - innerText: element innerText
 - href: element href
+- srcImg: img src attribute
 
 ## Run locally
 
