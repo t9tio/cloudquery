@@ -1,10 +1,28 @@
 {
   "name": "cloudquery",
   "profile": "timConsole",
+  "proxy": {
+    "command": "npm start",
+    "timeout": 20,
+    "listen_timeout": 5
+  },
   "regions": ["us-west-2"],
   "static": {
     "dir": "public",
     "prefix": "/public/"
+  },
+  "lambda": {
+    "memory": 1024
+  },
+  "hooks": {
+    "build": "npm run build",
+    "clean": "npm i --offline"
+  },
+  "error_pages": {
+    "variables": {
+      "support_email": "timqian92@qq.com",
+      "color": "#228ae6"
+    }
   },
   "stages": {
     "production": {

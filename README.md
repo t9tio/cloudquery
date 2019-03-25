@@ -1,7 +1,7 @@
 
 # CloudQuery
 
-Turn any website to API (serverless and support SPA!)
+Turn any website to API by several clicks.
 
 Try online: https://cloudquery.t9t.io
 
@@ -9,7 +9,7 @@ Try online: https://cloudquery.t9t.io
 
 ## API
 
-Example url: [https://cloudquery.t9t.io/query?url=https://news.ycombinator.com/best&selectors=*:nth-child(1) > * > *:nth-child(2) > *:nth-child(2) > *:nth-child(1),*:nth-child(3) *:nth-child(1) > *:nth-child(3) > *:nth-child(1)](https://2uvlp0y13b.execute-api.us-west-2.amazonaws.com/staging/query?url=https://news.ycombinator.com/best&selectors=*:nth-child(1)%20%3E%20*%20%3E%20*:nth-child(2)%20%3E%20*:nth-child(2)%20%3E%20*:nth-child(1),*:nth-child(3)%20*:nth-child(1)%20%3E%20*:nth-child(3)%20%3E%20*:nth-child(1))
+- Sample Query: [Best 3 post on HN](https://cloudquery.t9t.io/query?url=https%3A%2F%2Fnews.ycombinator.com%2F&selectors=*:nth-child(3)%20*:nth-child(1)%20%3E%20*:nth-child(3)%20%3E%20*:nth-child(1),*:nth-child(4)%20%3E%20*:nth-child(3)%20%3E%20*:nth-child(1),*:nth-child(7)%20%3E%20*:nth-child(3)%20%3E%20*:nth-child(1))
 
 Query params:
 
@@ -24,9 +24,14 @@ Returns:
 ## Run locally
 
 ```bash
+# install dependencies
 npm i
-npm start
-# open http://localhost:3000
+# start frontend server(for auto restart when code change)
+npm sb
+# start backend server(for auto restart when code change)
+npm sf
+
+# visit http://localhost:1234
 ```
 
 ## How to deploy your own CloudQuery to AWS lambda
@@ -41,26 +46,13 @@ npm start
 1. `npm install`
 1. Install [`up`](https://up.docs.apex.sh)
 1. Input `up` in terminal and hit enter :)
-1. `up url` to see the API baseURL of your CloudQuery
-
-## How to Contribute
-
-1. Install [nodemon](https://github.com/remy/nodemon#) and [parcel](https://github.com/parcel-bundler/parcel) locally
-2. Start backend by `npm run local`
-3. Start frontend by
-    ```bash
-        cd frontend
-        npm install
-        npm start
-    ```
-4. The backend and frontend server will both auto restart when seeing code change
-5. After adding new feature or fixing bugs, execute `npm run build` in `frontend` folder, frontend code will be built and copied to `public` folder.
+1. `up url` to see the URL of your CloudQuery
 
 ### Develop online
 
 You can run CloudQuery in a free online dev environment using Gitpod:
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/cloudfetch/cloudquery)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/t9tio/cloudquery)
 
 # Thanks
 

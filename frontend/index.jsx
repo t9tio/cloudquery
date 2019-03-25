@@ -1,8 +1,12 @@
-'use strict';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/label-has-for */
 
-import React,{ useState } from "react";
-import ReactDOM from "react-dom";
-import finder from "@medv/finder";
+
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import finder from '@medv/finder';
 import axios from 'axios';
 
 let lambdaUrl = process.env.NODE_ENV === 'production' ? window.location.href : 'http://localhost:3000';
@@ -10,11 +14,11 @@ if (process.env.LAMBDA_URL) lambdaUrl = process.env.LAMBDA_URL;
 if (lambdaUrl[lambdaUrl.length - 1] === '/') lambdaUrl = lambdaUrl.slice(0, lambdaUrl.length - 1);
 
 const requestFullHTML = async (url) => {
-  const {data} = await axios.get(lambdaUrl + '/fullHtml', {
+  const { data } = await axios.get(`${lambdaUrl}/fullHtml`, {
     params: {
       url,
     },
-  })
+  });
   return data.html;
 };
 
@@ -24,7 +28,7 @@ const Page = () => {
   const [records, setRecords] = useState([]);
 
   async function getFullHtml() {
-    if(url.startsWith('http') !== true) {
+    if (url.startsWith('http') !== true) {
       alert('Invalid url, please insert url start with http/https');
       throw new Error('invalid url');
     }
@@ -45,10 +49,9 @@ const Page = () => {
     // compare current target with last target to decide background color
     let lastTarget = null;
     let currentTarget = null;
-    iframeWindow.onmouseover = e => {
+    iframeWindow.onmouseover = (e) => {
       currentTarget = e.target;
       if (currentTarget !== lastTarget && !currentTarget.clicked) {
-
         // TODO: add transparency
         currentTarget.style.backgroundColor = '#219cef45';
         if (lastTarget && !lastTarget.clicked) lastTarget.style.backgroundColor = null;
@@ -58,12 +61,11 @@ const Page = () => {
 
     iframeWindow.onmouseout = () => {
       if (lastTarget && !lastTarget.clicked) lastTarget.style.backgroundColor = null;
-    }
+    };
 
     // disable all click events: https://stackoverflow.com/a/19780264/4674834
-    iframeWindow.onclick = e => {
-
-      const target = e.target;
+    iframeWindow.onclick = (e) => {
+      const { target } = e;
 
       e.stopPropagation();
       e.preventDefault();
@@ -71,7 +73,7 @@ const Page = () => {
       if (target.clicked) {
         target.clicked = false;
         // remove from array
-        setRecords(pre => pre.filter(record => record.target !== target))
+        setRecords(pre => pre.filter(record => record.target !== target));
       } else {
         target.clicked = true;
         const selector = finder(target, {
@@ -89,21 +91,21 @@ const Page = () => {
           href: cloneNode.href,
         }));
       }
-
-    }
-
+    };
   }
 
   let APIElement = '';
   if (records.length > 0) {
-    const queryParms = `url=${encodeURIComponent(url)}&selectors=${records.map(record => record.selector).join(',')}`
+    const queryParms = `url=${encodeURIComponent(url)}&selectors=${records.map(record => record.selector).join(',')}`;
     const apiURL = `${lambdaUrl}/query?${queryParms}`;
-    APIElement = <div className="control is-expanded">
-      <strong>API UIL: &nbsp;</strong> <a href={apiURL} target="_blank" rel="noopener noreferrer" >{apiURL.slice(0,70)}...</a>
-      <br/>
-      <br/>
-      <strong>Query: &nbsp;</strong> <input className="input is-small" style={{width: '20rem'}} value={queryParms}></input>
-    </div>
+    APIElement = (
+      <div className="control is-expanded">
+        <strong>API UIL: &nbsp;</strong> <a href={apiURL} target="_blank" rel="noopener noreferrer" >{apiURL.slice(0, 70)}...</a>
+        <br />
+        <br />
+        <strong>Query: &nbsp;</strong> <input className="input is-small" style={{ width: '20rem' }} value={queryParms} />
+      </div>
+    );
   }
 
   return (
@@ -111,21 +113,29 @@ const Page = () => {
       <div className="container">
 
         <h1 className="is-size-3 has-text-weight-semibold">Turn any webpage to API</h1>
-        <br/>
+        <br />
 
         <div>
           <label className="label">Step 1: Input website url and fetch the page</label>
           <div className="field has-addons">
             <div className="control has-icons-left is-expanded">
-              <input id="url_to_fetch" className="input is-dark" type="text" placeholder="URL e.g. https://news.ycombinator.com" value={url} onChange={() => {
-                setUrl(document.querySelector('#url_to_fetch').value);
-              }} onKeyDown={(e)=>{
-                if (e.keyCode === 13) {
-                  getFullHtml();
-                }
-              }}/>
+              <input
+                id="url_to_fetch"
+                className="input is-dark"
+                type="text"
+                placeholder="URL e.g. https://news.ycombinator.com"
+                value={url}
+                onChange={() => {
+                  setUrl(document.querySelector('#url_to_fetch').value);
+                }}
+                onKeyDown={(e) => {
+                  if (e.keyCode === 13) {
+                    getFullHtml();
+                  }
+                }}
+              />
               <span className="icon is-left">
-                <i className="fas fa-link"></i>
+                <i className="fas fa-link" />
               </span>
             </div>
             <div className="control">
@@ -135,50 +145,62 @@ const Page = () => {
             </div>
           </div>
 
-          {/**https://coderwall.com/p/hkgamw/creating-full-width-100-container-inside-fixed-width-container : wilder: , width: '96vw', marginLeft: '-48vw', left: '50%', position: 'relative'*/}
+          {/** https://coderwall.com/p/hkgamw/creating-full-width-100-container-inside-fixed-width-container : wilder: , width: '96vw', marginLeft: '-48vw', left: '50%', position: 'relative' */}
           <label className="label">Step 2: Choose the content you want by clicking them</label>
 
-          <div id="iframeContainer" style={{borderStyle: 'solid', borderColor:'hsl(0, 0%, 21%)', borderWidth:'5px', borderRadius:'5px'}}>
-            <iframe id='iframe' sandbox="allow-forms allow-scripts allow-same-origin allow-popups" style={{width:'100%', height:500}}></iframe>
+          <div
+            id="iframeContainer"
+            style={{
+              borderStyle: 'solid', borderColor: 'hsl(0, 0%, 21%)', borderWidth: '5px', borderRadius: '5px',
+            }}
+          >
+            <iframe id="iframe" title="webpage" sandbox="allow-forms allow-scripts allow-same-origin allow-popups" style={{ width: '100%', height: 500 }} />
 
-            <div style={{backgroundColor:'#eee', padding:5}}>
+            <div style={{ backgroundColor: '#eee', padding: 5 }}>
               <h2 className="is-size-6 has-text-weight-semibold"> Selected contents: </h2>
-              {records.map((record, i) => {
-                return (
-                  <div key={i} style={{margin:'.3rem'}}>
-                    <a className="delete" onClick={() => {
-                      setRecords(pre => {
-                        const cur = pre;
-                        cur[i].target.clicked = false;
-                        cur[i].target.style.backgroundColor = null;
-                        cur.splice(i,1);
-                        return cur;
-                      })
-                    }}>delete</a> &nbsp;
+              {
+                records.map((record, i) => {
+                  console.log(records);
+                  return (
+                    <div key={`${record.innerText}`} style={{ margin: '.3rem' }}>
+                      <a
+                        className="delete"
+                        onClick={() => {
+                          setRecords((pre) => {
+                            const cur = Array.from(pre);
+                            cur[i].target.clicked = false;
+                            cur[i].target.style.backgroundColor = null;
+                            cur.splice(i, 1);
+                            return cur;
+                          });
+                        }}
+                      >delete
+                      </a> &nbsp;
 
-                    {
-                      record.href ?
-                        <a href={record.href}>{record.innerText}</a>
-                        :
-                        <span>{record.innerText}</span>
-                    }
-                    <br/>
-                  </div>
-                )
-              })}
+                      {
+                        record.href ?
+                          <a href={record.href}>{record.innerText}</a>
+                          :
+                          <span>{record.innerText}</span>
+                      }
+                      <br />
+                    </div>
+                  );
+                })
+              }
             </div>
           </div>
 
-          <br/>
+          <br />
           {APIElement}
-          <br/>
+          <br />
 
         </div>
       </div>
     </div>
   );
-}
+};
 
 
 const domContainer = document.querySelector('#root');
-ReactDOM.render(<Page/>, domContainer);
+ReactDOM.render(<Page />, domContainer);

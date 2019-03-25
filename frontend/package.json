@@ -14,10 +14,11 @@
   "dependencies": {
     "@medv/finder": "^1.1.1",
     "axios": "^0.18.0",
-    "eslint": "^5.12.1",
     "babel-eslint": "^8.2.1",
+    "eslint": "^5.12.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-react": "^7.6.0",
+    "parcel": "^1.12.3",
     "react": "^16.8.0-alpha.1",
     "react-dom": "^16.8.0-alpha.1"
   },

@@ -1,24 +1,42 @@
 {
-  "name": "cloudfetch-lambda",
+  "name": "cloudquery",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "local": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sf": "parcel frontend/index.html --out-dir public",
+    "sb": "nodemon backend/index.js",
+    "lint": "eslint ./backend/*.js ./frontend/*.jsx",
+    "buildFrontend": "rm -rf ./public && NODE_ENV=production && parcel build ./frontend/index.html --out-dir ./public --no-cache --no-source-maps --public-url ./public",
+    "build": "npm run buildFrontend && npm prune --production",
+    "start": "NODE_ENV=production && node backend/index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "timqian",
+  "license": "GPLv3",
   "dependencies": {
     "@serverless-chrome/lambda": "^1.0.0-55",
     "chrome-remote-interface": "^0.26.1",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "express-rate-limit": "^3.3.2"
+    "express-rate-limit": "^3.4.0"
   },
   "devDependencies": {
-    "chrome-launcher": "^0.10.5"
-  }
+    "@medv/finder": "^1.1.1",
+    "axios": "^0.18.0",
+    "babel-eslint": "^8.2.1",
+    "chrome-launcher": "^0.10.5",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.6.0",
+    "nodemon": "^1.18.10",
+    "parcel": "^1.12.3",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5"
+  },
+  "browserslist": [
+    "since 2017-06"
+  ]
 }

@@ -1,6 +1,8 @@
 node_modules
-frontend/.cache
-frontend/dist
+.cache
+public
+dist
 blog.md
 marketing.md
 TODO.md
+.DS_Store
