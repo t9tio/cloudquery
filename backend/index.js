@@ -7,11 +7,12 @@
 const launchChrome = require('@serverless-chrome/lambda');
 const CDP = require('chrome-remote-interface');
 const express = require('express');
-
-const app = express();
+const path = require('path');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const config = require('./config');
+
+const app = express();
 
 // only if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 app.enable('trust proxy');
@@ -255,7 +256,7 @@ app.get('/fullHtml', async (req, res) => {
 });
 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '../public/index.html');
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 })
 
 const { PORT = 3000 } = process.env;
