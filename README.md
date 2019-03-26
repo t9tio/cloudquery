@@ -9,7 +9,7 @@ Try online: https://cloudquery.t9t.io
 
 ## API
 
-- Sample Query: [Best 3 post on HN](https://cloudquery.t9t.io/query?url=https%3A%2F%2Fnews.ycombinator.com%2F&selectors=*:nth-child(3)%20*:nth-child(1)%20%3E%20*:nth-child(3)%20%3E%20*:nth-child(1),*:nth-child(4)%20%3E%20*:nth-child(3)%20%3E%20*:nth-child(1),*:nth-child(7)%20%3E%20*:nth-child(3)%20%3E%20*:nth-child(1))
+- Sample Query: [Best 3 posts on HN](https://cloudquery.t9t.io/query?url=https%3A%2F%2Fnews.ycombinator.com%2F&selectors=*:nth-child(3)%20*:nth-child(1)%20%3E%20*:nth-child(3)%20%3E%20*:nth-child(1),*:nth-child(4)%20%3E%20*:nth-child(3)%20%3E%20*:nth-child(1),*:nth-child(7)%20%3E%20*:nth-child(3)%20%3E%20*:nth-child(1))
 
 Query params:
 
@@ -27,9 +27,9 @@ Returns:
 # install dependencies
 npm i
 # start frontend server(for auto restart when code change)
-npm sb
+npm run sb
 # start backend server(for auto restart when code change)
-npm sf
+npm run sf
 
 # visit http://localhost:1234
 ```
