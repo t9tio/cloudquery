@@ -33,6 +33,9 @@
           <a class="navbar-item" href="https://github.com/t9tio/cloudquery">
             <strong>About</strong>
           </a>
+          <a class="navbar-item" id="pro-btn">
+            <strong> Pro <i class="far fa-hand-spock"></i>  </strong>
+          </a>
         </div>
       </div>
     </nav>
@@ -40,32 +43,88 @@
     <div id="root">
     </div>
 
-      <!-- Footer -->
-      <footer class="footer" style="background-color:white">
-        <div class="container">
-          <hr style="background-color:#dbdbdb; height: 1px" />
-          <div style="float:left">
-            Build with <i class="far fa-heart"></i> by
-            <a href="https://twitter.com/tim_qian"> Tim Qian</a>
+    <!-- Modal -->
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Action record and replay</p>
+          <button class="delete" aria-label="close" id="close-btn"></button>
+        </header>
+        <section class="modal-card-body">
+
+          <!-- Begin Mailchimp Signup Form -->
+          <!-- <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css"> -->
+          <div id="mc_embed_signup">
+          <form action="https://gmail.us20.list-manage.com/subscribe/post?u=b6fc57fc74f9fe4ec334cf1b8&amp;id=5ba4a8b38f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+              <p>In the upcoming pro version. User will be enabled to record actions on any website before turn it into API. This should be useful for example to get data behind a login page. It's still in progress. If you are interested. Consider subscribing to the email list. I will inform you once the pro version is done.</p>
+
+              <br/>
+              <div class="field has-addons">
+                <div class="control is-expanded">
+                  <input class="input" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b6fc57fc74f9fe4ec334cf1b8_5ba4a8b38f" tabindex="-1" value=""></div>
+                </div>
+                <div class="control">
+                  <input  class="button is-success" type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">
+                </div>
+              </div>
+
+            </div>
+          </form>
           </div>
-          <div style="float: right">
-            <a
-              class="icon button is-white"
-              href="https://twitter.com/t9tio"><i class="fab fa-twitter"></i></a>
-            <a
-              class="icon button is-white"
-              href="https://join.slack.com/t/cloudfetch/shared_invite/enQtNTA5NzIyNTU2Mzc1LTIwNzZiODZkNzFiODY0NTM4OWViYjgxN2JkNGY0NzJiYWQzNTcwYzM3NjMwMmE2N2RkMzE0ZGRlYWJkYTY3Yzg"><i
-                class="fab fa-slack"></i></a>
-            <a
-              class="icon button is-white"
-              href="https://user-images.githubusercontent.com/5512552/40399903-53d1ebde-5e72-11e8-98d8-615fc40c09f1.jpeg"><i
-                class="fab fa-weixin"></i></a>
-            <a class="icon button is-white" href="mailto:timqian92@qq.com"><i
-                class="fas fa-envelope"></i></a>
-          </div>
+
+          <!--End mc_embed_signup-->
+        </section>
+      </div>
+    </div>
+  
+    <!-- Footer -->
+    <footer class="footer" style="background-color:white">
+      <div class="container">
+        <hr style="background-color:#dbdbdb; height: 1px" />
+        <div style="float:left">
+          Build with <i class="far fa-heart"></i> by
+          <a href="https://twitter.com/tim_qian"> Tim Qian</a>
         </div>
-      </footer>
+        <div style="float: right">
+          <a
+            class="icon button is-white"
+            href="https://twitter.com/t9tio"><i class="fab fa-twitter"></i></a>
+          <a
+            class="icon button is-white"
+            href="https://join.slack.com/t/cloudfetch/shared_invite/enQtNTA5NzIyNTU2Mzc1LTIwNzZiODZkNzFiODY0NTM4OWViYjgxN2JkNGY0NzJiYWQzNTcwYzM3NjMwMmE2N2RkMzE0ZGRlYWJkYTY3Yzg"><i
+              class="fab fa-slack"></i></a>
+          <a
+            class="icon button is-white"
+            href="https://user-images.githubusercontent.com/5512552/40399903-53d1ebde-5e72-11e8-98d8-615fc40c09f1.jpeg"><i
+              class="fab fa-weixin"></i></a>
+          <a class="icon button is-white" href="mailto:timqian92@qq.com">
+            <i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </footer>
     <script src="./index.jsx"></script>
+
+
+    <!-- For modal-->
+    <script>
+      const proBtn = document.querySelector('#pro-btn');
+      const modal = document.querySelector('.modal');
+      const closeBtn = document.querySelector('#close-btn');
+
+      proBtn.addEventListener('click', () => {
+        modal.classList.add('is-active');
+      });
+
+      closeBtn.addEventListener('click', () => {
+        modal.classList.remove('is-active');
+      })
+
+    </script>
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56506279-7"></script>
@@ -76,7 +135,6 @@
 
       gtag('config', 'UA-56506279-7');
     </script>
-
   </body>
 
 </html>
