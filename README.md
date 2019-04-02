@@ -1,6 +1,8 @@
 
 # CloudQuery
 
+[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/t9tio)
+
 Turn any website to API by several clicks.
 
 Try online: https://cloudquery.t9t.io
