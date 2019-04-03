@@ -45,10 +45,17 @@ npm run sf
 
 ### 2. Deploy
 
-1. `npm install`
-1. Install [`up`](https://up.docs.apex.sh)
-1. Input `up` in terminal and hit enter :)
-1. `up url` to see the URL of your CloudQuery
+```bash
+# deploy to aws lambda
+up
+
+# see the URL of your CloudQuery
+up url
+
+# deploy production version(to cloudquery.t9t.io)
+up deploy production
+
+```
 
 ### Develop online
 

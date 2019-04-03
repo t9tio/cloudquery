@@ -16,7 +16,7 @@
   },
   "hooks": {
     "build": "npm run build",
-    "clean": "npm i --offline"
+    "postdeploy": "npm i --offline"
   },
   "error_pages": {
     "variables": {
