@@ -1,7 +1,7 @@
 
 # CloudQuery
 
-[![Join the community on Spectrum](https://withspectrum.github.io/badge/badge.svg)](https://spectrum.chat/t9tio)
+[![Join us](https://badgen.net/badge/Join%20the%20community/Get%20in%20touch/green)](https://t9t.io/#contact)
 
 Turn any website to API by several clicks.
 
