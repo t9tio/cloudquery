@@ -1,7 +1,7 @@
 
 # CloudQuery
 
-[![Join us](https://badgen.net/badge/Join%20the%20community/Get%20in%20touch/green)](https://t9t.io/#contact)
+[![Join us](https://badgen.net/badge/Join%20the%20community%20of%20t9t.io/Get%20in%20touch/green)](https://t9t.io/#contact)
 
 Turn any website to API by several clicks.
 
