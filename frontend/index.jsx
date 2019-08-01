@@ -102,9 +102,6 @@ const Page = () => {
     APIElement = (
       <div className="control is-expanded">
         <strong>API UIL: &nbsp;</strong> <a href={apiURL} target="_blank" rel="noopener noreferrer" >{apiURL.slice(0, 70)}...</a>
-        <br />
-        <br />
-        <strong>Query: &nbsp;</strong> <input className="input is-small" style={{ width: '20rem' }} value={queryParms} />
       </div>
     );
   }

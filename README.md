@@ -57,12 +57,6 @@ up deploy production
 
 ```
 
-### Develop online
-
-You can run CloudQuery in a free online dev environment using Gitpod:
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/t9tio/cloudquery)
-
 # Thanks
 
 - [up](https://github.com/apex/up) for deploying serverless API to AWS with ease
