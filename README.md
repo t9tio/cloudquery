@@ -28,9 +28,9 @@ Returns:
 ```bash
 # install dependencies
 npm i
-# start frontend server(for auto restart when code change)
-npm run sb
 # start backend server(for auto restart when code change)
+npm run sb
+# start frontend server(for auto restart when code change)
 npm run sf
 
 # visit http://localhost:1234
