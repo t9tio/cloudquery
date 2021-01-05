@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@medv/finder": "^1.1.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-eslint": "^8.2.1",
     "chrome-launcher": "^0.10.5",
     "cssnano": "^4.1.10",
