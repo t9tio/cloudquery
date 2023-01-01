@@ -33,7 +33,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.6.0",
     "nodemon": "^1.18.10",
-    "parcel": "^1.12.3",
+    "parcel": "^2.8.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.5"
   },
